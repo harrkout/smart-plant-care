@@ -3,14 +3,14 @@ from flask_babel import _
 from wtforms import DateField, SubmitField
 from wtforms.validators import DataRequired
 
-class graphExample(FlaskForm):
+class irrigationGraph(FlaskForm):
 
     # start_date - DateField, DataRequired
-    start_date = DateField(label=_('Graph Example Start Date'),
+    start_date = DateField(label=_('Readings Graph Start Date'),
                            validators=[DataRequired(message=_('This field cannot be empty.'))])
 
     # end_date - DateField, DataRequired
-    end_date = DateField(label=_('Graph Example End Date'),
+    end_date = DateField(label=_('Readings Graph End Date'),
                            validators=[DataRequired(message=_('This field cannot be empty.'))])
 
     submit = SubmitField(label=_('Submit'))
