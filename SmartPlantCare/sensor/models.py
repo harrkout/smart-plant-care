@@ -30,3 +30,17 @@ class SensorData(db.Model):
     processed = db.Column(db.Boolean, nullable=False, default=False)
     def __repr__(self):
         return f"{self.id}:{self.sensor_id}"
+
+class Valve(db.Model):
+    __tablename__ = 'valve'
+    __table_args__ = (
+        PrimaryKeyConstraint('id', name='valve_pk'),
+     )
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    crop_id = db.Column(db.Integer, db.ForeignKey('crop.id'), nullable=False)
+    status = db.Column(db.Boolean, nullable=False, default=False)
+    counter = db.Column(db.Float, nullable=False, default=0)
+    hwaddr = db.Column(db.String(200), nullable=False)  # 
+
+    def __repr__(self):
+        return f"{self.id}:{self.crop_id}"
