@@ -35,20 +35,3 @@ class regionBulletinData(db.Model):
 
     def __repr__(self):
         return f"{self.id}:{self.bulletin}:{self.prefecture}"
-
-class irrigationData(db.Model):
-    __tablename__ = 'irrigation_data'
-    __table_args__ = (
-        PrimaryKeyConstraint('id', name='irrigation_data_pk'),  
-    )
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    crop_id = db.Column(db.Integer, db.ForeignKey('crop.id'), nullable=False)
-    start_date = db.Column(db.DateTime, default='1/1/2000', nullable=False)
-    end_date = db.Column(db.DateTime, default='1/1/2000', nullable=False)
-    counter_start_date_data = db.Column(db.Float, nullable=True)
-    counter_end_date_data = db.Column(db.Float, nullable=True)
-    required_quantity = db.Column(db.Float, nullable=True)
-    supplied_quantity = db.Column(db.Float, nullable=True)
-
-    def __repr__(self):
-        return f"{self.id}:{self.crop_id}:{self.start_date}"
